@@ -22,14 +22,29 @@ export const BulkDelete = () => {
     setItem("taskList", filteredData);
   };
 
+  const selectAll = (e) => {
+    const tempTaskList = [...taskList];
+    tempTaskList.forEach((task) => (task.selected = e.target.checked));
+    setTaskList(tempTaskList);
+    setItem("taskId", 0);
+  };
+
+  console.log(taskList)
+
   return (
     <div>
+      {taskList.length > 0 && (
+        <>
+          <input type="checkbox" onChange={selectAll} />
+          <button onClick={deleteTasks}>Delete All</button>
+        </>
+      )}
       {taskList?.length > 0
         ? taskList?.map((task, index) => (
             <div key={index} className="task">
               <input
                 type="checkbox"
-                value={task.selected}
+                checked={task.selected}
                 onChange={(e) => handleCheckbox(e, index)}
               />
               <span>{task.id}:</span>
@@ -37,7 +52,7 @@ export const BulkDelete = () => {
             </div>
           ))
         : emptyList}
-      <button onClick={deleteTasks}>Delete</button>
+      {taskList.length > 0 && <button onClick={deleteTasks}>Delete</button>}
     </div>
   );
 };

@@ -8,7 +8,7 @@ export const CreateTasks = () => {
 
   useEffect(() => {
     setTaskList(getItem("taskList") ?? []);
-    setTaskId(getItem("totalTasks") ?? 1);
+    setTaskId(getItem("totalTasks") ?? 0);
   }, []);
 
   const createTask = () => {
