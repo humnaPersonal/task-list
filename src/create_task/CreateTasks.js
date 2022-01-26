@@ -11,6 +11,7 @@ export const CreateTasks = () => {
     tempTaskList.push({
       id: taskId + 1,
       name: taskName,
+      selected: false
     });
     setTaskName("");
     setTaskId(taskId + 1);
