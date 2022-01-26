@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ListTasks } from './list_task/ListTasks';
 import { CreateTasks } from './create_task/CreateTasks';
@@ -12,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<ListTasks />} />
         <Route path="list-tasks" element={<ListTasks />} />
         <Route path="create-task" element={<CreateTasks />} />
         <Route path="bulk-delete" element={<BulkDelete />} />

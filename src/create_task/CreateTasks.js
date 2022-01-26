@@ -9,7 +9,7 @@ export const CreateTasks = () => {
   const createTask = () => {
     const tempTaskList = [...taskList];
     tempTaskList.push({
-      taskId: taskId + 1,
+      id: taskId + 1,
       name: taskName,
     });
     setTaskName("");

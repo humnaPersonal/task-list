@@ -6,9 +6,7 @@ function App() {
 
   return (
     <div>
-      {taskList.length > 0
-        ? taskList.map((list) => <div>{list.name}</div>)
-        : emptyList}
+      extra
     </div>
   );
 }
