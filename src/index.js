@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ListTasks } from './list_task/ListTasks';
+import { CreateTasks } from './create_task/CreateTasks';
+import { BulkDelete } from './bulk_delete/BulkDelete';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="list-tasks" element={<ListTasks />} />
+        <Route path="create-task" element={<CreateTasks />} />
+        <Route path="bulk-delete" element={<BulkDelete />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
