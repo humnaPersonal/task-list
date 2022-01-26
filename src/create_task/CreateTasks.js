@@ -8,23 +8,22 @@ export const CreateTasks = () => {
 
   useEffect(() => {
     setTaskList(getItem("taskList") ?? []);
-    setTaskId(getItem("totalTasks") ?? 0);
+    setTaskId(getItem("totalTasks") ?? 1);
   }, []);
 
-  console.log(taskId, taskList);
-
   const createTask = () => {
+    const id = taskId + 1;
     const tempTaskList = taskList.length > 0 ? [...taskList] : [];
     tempTaskList.push({
-      id: taskId + 1,
+      id,
       name: taskName,
       selected: false,
     });
     setTaskName("");
-    setTaskId(taskId + 1);
+    setTaskId(id);
     setTaskList(tempTaskList);
     setItem("taskList", tempTaskList);
-    setItem("totalTasks", taskId);
+    setItem("totalTasks", id);
   };
 
   return (
