@@ -17,9 +17,7 @@ export const BulkDelete = () => {
   };
 
   const deleteTasks = () => {
-      debugger
     const filteredData = taskList.filter((task) => task.selected === false);
-    debugger
     setTaskList(filteredData);
     setItem("taskList", filteredData);
   };
@@ -28,9 +26,10 @@ export const BulkDelete = () => {
     <div>
       {taskList?.length > 0
         ? taskList?.map((task, index) => (
-            <div className="task">
+            <div key={index} className="task">
               <input
                 type="checkbox"
+                value={task.selected}
                 onChange={(e) => handleCheckbox(e, index)}
               />
               <span>{task.id}:</span>

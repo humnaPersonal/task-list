@@ -9,13 +9,14 @@ export const ListTasks = () => {
   useEffect(() => {
     setTaskList(getItem("taskList"));
   }, []);
+
   return (
     <div>
       {taskList?.length > 0
-        ? taskList?.map((list) => (
-            <div className="task">
-              <span>{list.id}:</span>
-              <div>{list.name}</div>
+        ? taskList?.map((task) => (
+            <div key={task.id} className="task">
+              <span>{task.id}:</span>
+              <div>{task.name}</div>
             </div>
           ))
         : emptyList}

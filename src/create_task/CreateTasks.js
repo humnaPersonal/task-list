@@ -1,17 +1,24 @@
-import { useState } from "react";
-import { setItem } from "../utilities";
+import { useEffect, useState } from "react";
+import { setItem, getItem } from "../utilities";
 
 export const CreateTasks = () => {
   const [taskName, setTaskName] = useState("");
   const [taskList, setTaskList] = useState([]);
   const [taskId, setTaskId] = useState(0);
 
+  useEffect(() => {
+    setTaskList(getItem("taskList") ?? []);
+    setTaskId(getItem("totalTasks") ?? 0);
+  }, []);
+
+  console.log(taskId, taskList);
+
   const createTask = () => {
-    const tempTaskList = [...taskList];
+    const tempTaskList = taskList.length > 0 ? [...taskList] : [];
     tempTaskList.push({
       id: taskId + 1,
       name: taskName,
-      selected: false
+      selected: false,
     });
     setTaskName("");
     setTaskId(taskId + 1);
